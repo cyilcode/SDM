@@ -9,16 +9,16 @@ public Plugin:myinfo = {
 	url = ""
 }
 
-#define RESPAWN_DELAY									1.10 				// Respawn time
-#define MAX_SPAWNPOINT									23					// You need to re-set this after you change it
-#define SPAWN_AREA_SCAN_RADIUS							475					// Maximum area cover radius(units).
-#define DISABLE_RADAR	 								1 << 12
-#define INVALID_PLAYER_INDEX							0
+#define RESPAWN_DELAY							1.10 // Respawn time
+#define MAX_SPAWNPOINT							23   // You need to re-set this after you change it
+#define SPAWN_AREA_SCAN_RADIUS						475  // Maximum area cover radius(units).
+#define DISABLE_RADAR	 						1 << 12
+#define INVALID_PLAYER_INDEX						0
 new Float:g_TimerVal[MAXPLAYERS+1]				      = 0.0;
-new g_LastSpawnPoint								  = 0;
-new Float:g_Location[3]								  = 0.0; 
-new Float:g_Angles[3]								  = 0.0;
-new Float:g_Velocity[3]								  = 0.0;
+new g_LastSpawnPoint						      = 0;
+new Float:g_Location[3]						      = 0.0; 
+new Float:g_Angles[3]						      = 0.0;
+new Float:g_Velocity[3]						      = 0.0;
 new String:lineText[128];
 new Handle:textLines;
 new String:filepath[PLATFORM_MAX_PATH];
@@ -109,7 +109,7 @@ public Action timerCallback(Handle timer, any client)
 	Since people like to spawn camp a lot, we need to protect the spawned player by checking the surroundings of the selected spawn point.
 	Basically, 
 	* get X and Y coordinates of the selected spawn point(as function parameters)
-	* iterate all players, get X-Y coordinates of the alive players.
+	* iterate through all players, get X-Y coordinates of the alive players.
 	* calculate the difference between XY1 and XY2
 	* If any player returns a difference is greater than SPAWN_AREA_SCAN_RADIUS then skip that point and look for the next one.
 	* TODO: Generic spawn points and player vision angle checks.
@@ -117,7 +117,7 @@ public Action timerCallback(Handle timer, any client)
 
 public bool checkSpawnPoint(Float:locX, Float:locY)
 {
-	new Float:spawnedLocation[3] = 0.0;
+	new Float:spawnedLocation[3]             = 0.0;
 	new Float:absX				 = 0.0;
 	new Float:absY				 = 0.0;
 

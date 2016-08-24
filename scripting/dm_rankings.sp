@@ -11,15 +11,15 @@ public Plugin:myinfo = {
 #define g_ChatHeader			 					"[\x04SDM\x01]"
 #define RANK_BEGINNER								"[Beginner]-[Beginner]"
 #define RANK_AMATEUR								"[\x08Amateur\x01]\x08-[Amateur]"
-#define RANK_PROBIE									"[\x06Probie\x01]\x06-[Probie]"
-#define	RANK_ROOKIE									"[\x05Rookie\x01]\x05-[Rookie]"
+#define RANK_PROBIE								"[\x06Probie\x01]\x06-[Probie]"
+#define	RANK_ROOKIE								"[\x05Rookie\x01]\x05-[Rookie]"
 #define RANK_SHARPSHOOTER							"[\x04Sharpshooter\x01]\x04-[Sharpshooter]"
 #define RANK_RELENTLESS								"[\x07Relentless\x01]\x07-[Relentless]"
 #define RANK_BLOODTHIRSTY							"[\x02Bloodthirsty\x01]\x02-[Bloodthirsty]"
-#define RANK_MASTER									"[\x09Master\x01]\x09-[Master]"
+#define RANK_MASTER								"[\x09Master\x01]\x09-[Master]"
 #define RANK_EXCEPTIONAL							"[\11Exceptional\x01]\11-[Exceptional]"
 #define RANK_DECIMATOR								"[\12Decimator\x01]\12-[Decimator]"
-#define RANK_ADMIN									"[\x03Admin\x01]-[Admin]"
+#define RANK_ADMIN								"[\x03Admin\x01]-[Admin]"
 #define POINTS_BEGINNER								0
 #define POINTS_AMATEUR  							8000
 #define POINTS_PROBIE	  							18000
@@ -30,21 +30,21 @@ public Plugin:myinfo = {
 #define POINTS_MASTER	 							60000
 #define POINTS_EXCEPTIONAL 							70000
 #define POINTS_DECIMATOR  							79000
-#define KILL_REWARD									3
+#define KILL_REWARD								3
 #define	DEATH_PENALTY								5
 #define STARTING_POINTS								1000
-#define HITGROUP_HEAD           					1
-new g_playerPoints[MAXPLAYERS + 1]				  = 0;
-new Handle:db									  = INVALID_HANDLE;
-new Handle:dbTimer								  = INVALID_HANDLE;
-new bool:g_victimLastHitGroup[MAXPLAYERS + 1]     = false;
-new bool:g_isPlayerVIP[MAXPLAYERS + 1]            = false;
+#define HITGROUP_HEAD           						1
+new g_playerPoints[MAXPLAYERS + 1]				  		= 0;
+new Handle:db									= INVALID_HANDLE;
+new Handle:dbTimer								= INVALID_HANDLE;
+new bool:g_victimLastHitGroup[MAXPLAYERS + 1]     				= false;
+new bool:g_isPlayerVIP[MAXPLAYERS + 1]            				= false;
 new String:g_playerSteamID[MAXPLAYERS+1][32];
 new String:g_playerRank[MAXPLAYERS + 1][64];
 new String:Error[128];
 new String:query[256];
-new const String:RELATIVE_SOUND_PATH_RANKDOWN[]   = "*/weirdm/rankdown.mp3";
-new const String:RELATIVE_SOUND_PATH_RANKUP[] 	  = "*/weirdm/rankup.mp3";
+new const String:RELATIVE_SOUND_PATH_RANKDOWN[]   				= "*/weirdm/rankdown.mp3";
+new const String:RELATIVE_SOUND_PATH_RANKUP[] 	  				= "*/weirdm/rankup.mp3";
 public OnPluginStart()
 {
 	db = SQL_Connect("weirdm", true, Error, sizeof(Error));

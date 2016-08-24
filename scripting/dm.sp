@@ -9,23 +9,23 @@ public Plugin:myinfo = {
 	description = "Deathmatch script for CS:GO",
 	url = ""
 }
-#define WEAPONID_M4A1S 									60				/*WEAPON ID's*/
+#define WEAPONID_M4A1S 									60 	        /*WEAPON ID's*/
 #define WEAPONID_USPS									61
 #define WEAPONID_CZ75A									63
 #define WEAPONID_CT_KNIFE								42
 #define WEAPONID_T_KNIFE								59
 #define g_ChatHeader			 						"[\x04SDM\x01]" // Starting g_ChatHeader of every print. Basically the mod name.
-#define g_HealReward									25   			// default hp reward
-#define g_minArmorReward								5 				// minimum kevlar reward
-#define g_minHealReward									5 				// minimum hp reward
-#define g_rewardThreshold								100 			// HP Threshold
-#define g_rewardMax										125 			// Max reward for both kevlar and hp
-#define COLLISION_GROUP_DEBRIS							2 				// "Collides with nothing but world and static stuff"
-#define EFFECT_CS_BLOOD									31 				// csblood effectid. We'll use this to block blood effects
-new g_WeaponType[MAXPLAYERS+1] = 						0;				// Store weapon slots. Exp: CS_SLOT_PRIMARY
-new g_offsCollisionGroup = 								0;				// We'll get this to change players collision group
-new bool:g_onlyHeadshot = 								false; 			// Only headshot trigger
-new bool:g_pOnlyHeadshot[MAXPLAYERS+1] =				false; 			// Personal only headshot trigger
+#define g_HealReward									25   		// default hp reward
+#define g_minArmorReward								5 		// minimum kevlar reward
+#define g_minHealReward									5 		// minimum hp reward
+#define g_rewardThreshold								100 	 	// HP Threshold
+#define g_rewardMax									125 		// Max reward for both kevlar and hp
+#define COLLISION_GROUP_DEBRIS								2 		// "Collides with nothing but world and static stuff"
+#define EFFECT_CS_BLOOD									31 		// csblood effectid. We'll use this to block blood effects
+new g_WeaponType[MAXPLAYERS+1] = 							0;		// Store weapon slots. Exp: CS_SLOT_PRIMARY
+new g_offsCollisionGroup = 								0;		// We'll get this to change players collision group
+new bool:g_onlyHeadshot = 								false; 		// Only headshot trigger
+new bool:g_pOnlyHeadshot[MAXPLAYERS+1] =						false; 		// Personal only headshot trigger
 new String:filepath[PLATFORM_MAX_PATH];									// File path to weapon.txt files
 new String:g_Weapon[MAXPLAYERS+1][64];									// Stores weapon name.
 
@@ -38,11 +38,11 @@ public OnPluginStart()
 	AddTempEntHook("World Decal", TE_OnWorldDecal);
 }
 
-new const String:FULL_SOUND_PATH_ONLYHS[]			= "sound/weirdm/onlyhs.mp3";
+new const String:FULL_SOUND_PATH_ONLYHS[]		= "sound/weirdm/onlyhs.mp3";
 new const String:RELATIVE_SOUND_PATH_ONLYHS[]		= "*/weirdm/onlyhs.mp3";
-new const String:FULL_SOUND_PATH_RANKUP[]			= "sound/weirdm/rankup.mp3";
+new const String:FULL_SOUND_PATH_RANKUP[]		= "sound/weirdm/rankup.mp3";
 new const String:RELATIVE_SOUND_PATH_RANKUP[]		= "*/weirdm/rankup.mp3";
-new const String:FULL_SOUND_PATH_RANKDOWN[]			= "sound/weirdm/rankdown.mp3";
+new const String:FULL_SOUND_PATH_RANKDOWN[]		= "sound/weirdm/rankdown.mp3";
 new const String:RELATIVE_SOUND_PATH_RANKDOWN[]		= "*/weirdm/rankdown.mp3";
 
 public OnMapStart()
